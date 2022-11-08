@@ -15,6 +15,7 @@ class Game:
         self.new_game()
 
     def new_game(self):
+        self.setup()
         self.map = Map(self)
         self.player = Player(self)
         self.raycasting = RayCasting(self)
@@ -34,6 +35,12 @@ class Game:
             if event.type == pg.QUIT or (event.type == pg.KEYDOWN and event.key == pg.K_ESCAPE):
                 pg.quit()
                 sys.exit()
+
+    def setup(self):
+        program_icon = pg.image.load("./resources/icon.png")
+        pg.display.set_icon(program_icon)
+        pg.mouse.set_cursor(
+            (8, 8), (0, 0), (0, 0, 0, 0, 0, 0, 0, 0), (0, 0, 0, 0, 0, 0, 0, 0))
 
     def run(self):
         while True:
