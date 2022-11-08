@@ -30,7 +30,6 @@ class Game:
         pg.display.set_caption(f'{self.clock.get_fps() :.1f}')
 
     def draw(self):
-        self.screen.fill('black')
         self.object_renderer.draw()
 
     def check_events(self):
@@ -42,8 +41,7 @@ class Game:
     def setup(self):
         program_icon = pg.image.load("./resources/icon.png")
         pg.display.set_icon(program_icon)
-        pg.mouse.set_cursor(
-            (8, 8), (0, 0), (0, 0, 0, 0, 0, 0, 0, 0), (0, 0, 0, 0, 0, 0, 0, 0))
+        pg.mouse.set_visible(False)
 
     def run(self):
         while True:
